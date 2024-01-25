@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #shortcutkeys {
+      width: 35%;
+      height: 80%;
+      display: none;
+      background-color: whitesmoke;
+      box-shadow: 0 7px 15px 3px black;
+      border-radius: 5px;
+      padding-top: 1em;
+      position: fixed;
+      top: 10%;
+      left: 30%; z-index: 9;
+      overflow-y: auto; overflow-x: hidden;
+    }
+    .boardkey {
+      margin: 5px;
+      text-align: center; align-self: center;
+      width: 25px;
+      height: 25px;
+      background: white;
+      box-shadow: 0 0 3px grey;
+      border-bottom: 3px solid grey;
+      color: black;
+      border-radius: 5px;
+    }
+    .shortcutlist {
+      width: 100%;
+
+    }
+    .nothin {
+      width: 100%; 
+    }
+    .innershortcut {
+      display: flex; justify-content: flex-end;
+      text-align: right;
+    }
+#closeshortcut { user-select: none;
+width: 40px; height: 40px; border: 1px solid grey; transform: rotate(45deg); font-weight: bold; font-size: 1.8em; border-radius: 50%; position: absolute; color: red; top: 2px; right: 2px;
+}
+#closeshortcut:hover {background: red; color: white; transition: 0.6s;}
+
+#shortcutbg { top: 0px; left: 0px;
+width: 100%; display: none; height: 100%; background: rgba(0,0,0,0.5); z-index: 8; position:fixed;
+}
+  </style>
+  <title>Keyboard Shortcuts</title>
+</head>
+<body>
+
+<div id="shortcutbg"></div>
+<div id="shortcutkeys">
+<button id="closeshortcut">+</button>
+
+  <center><h2>Keyboard Shortcuts</h2></center>
+  <table class="shortcutlist">
+    <tr class="nothin">
+      <td class="innershortcut">
+        <div class="boardkey">f</div>
+      </td>
+      <td>Flip board</td>
+    </tr>
+    <tr class="nothin">
+      <td class="innershortcut">
+        <div class="boardkey">←</div>
+        <div style="font-size: 1.5em">/</div>
+        <div class="boardkey">→</div>
+      </td>
+      <td style="width: 50%;">Move backward/forward</td>
+    </tr>
+    <tr class="nothin">
+      <td class="innershortcut">
+        <div class="boardkey">↑</div>
+        <div style="font-size: 1.5em">/</div>
+        <div class="boardkey">↓</div>
+      </td>
+      <td style="width: 50%;">Go to start/end</td>
+    </tr>
+    <tr class="nothin">
+      <td class="innershortcut">
+        <div class="boardkey">?</div>
+      </td>
+      <td style="width: 50%;">Show this help dialog</td>
+    </tr>
+  </table>
+<div style="width: 100%; height: 40px; color: white; background: goldenrod; font-weight: bolder; text-align: center;line-height: 40px; margin-top: 10px;">Mouse tricks</div>
+<ul>
+<li>You can also scroll over the board to move in the game.
+<li>Press shift+click or right-click to draw circles and arrows on the board
+<ul>
+
+</div>
+
+<script>
+var closeThatKeyBox = document.getElementById('closeshortcut');
+var bgdialog = document.getElementById('shortcutbg');
+
+  closeThatKeyBox.addEventListener('click', function() {
+document.getElementById('shortcutkeys').style.display = 'none';  
+bgdialog.style.display = 'none';
+  });
+
+  bgdialog.addEventListener('click', function() {
+document.getElementById('shortcutkeys').style.display = 'none';
+bgdialog.style.display = 'none';
+  });
+
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "?") {
+      document.getElementById('shortcutkeys').style.display = "block";
+      document.getElementById('shortcutbg').style.display = "block";
+    }
+  });
+</script>
+
+</body>
+</html>
